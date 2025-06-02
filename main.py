@@ -14,6 +14,7 @@ def main():
     print_text = ""
     word_count = 0
     char_c = {}
+    name = 'Andras'
     char_c2 = {}
     if len(sys.argv) != 2:
         print ("Usage: python3 main.py <path_to_book>")
