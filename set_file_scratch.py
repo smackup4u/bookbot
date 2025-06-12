@@ -1,3 +1,5 @@
+import os
+import datetime
 
 
 def read_file(path):
@@ -26,5 +28,10 @@ def main():
     filename = ['books/3.txt','books/4.txt','books/5.txt']
     for f in filename:
         book_stats(f)
-
+    time = datetime.datetime.now()
+    print(time)
+    commandline = 'ls -l'
+    os.system(commandline)
+    command_curl = 'curl --output books/6.txt "https://www.gutenberg.org/cache/epub/89/pg89.txt"'
+    os.system(command_curl)
 main()
