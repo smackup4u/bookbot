@@ -32,6 +32,10 @@ def main():
     print(time)
     commandline = 'ls -l'
     os.system(commandline)
-    command_curl = 'curl --output books/6.txt "https://www.gutenberg.org/cache/epub/89/pg89.txt"'
-    os.system(command_curl)
+    book_number = 89
+    #command_curl = 'curl --output books/89.txt "https://www.gutenberg.org/cache/epub/89/pg89.txt"'
+    for bo in range(80, 89):
+        command_curl = 'curl --output books/'  + str(bo) + '.txt "https://www.gutenberg.org/cache/epub/' + str(bo) + '/pg' + str(bo) + '.txt"'
+    
+        os.system(command_curl)
 main()
