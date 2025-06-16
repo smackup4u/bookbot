@@ -24,18 +24,24 @@ def book_stats(filename):
     uniques = set(word_list)
     print(f'Der Text hat insgesamt {len(word_list)} Woerter und {len(uniques)} unterschiedliche Woerter')
 
+def get_books_guten(first_b, last_b):
+    for bo in range(first_b, last_b + 1):
+        command_curl = 'curl --output books/'  + str(bo) + '.txt "https://www.gutenberg.org/cache/epub/' + str(bo) + '/pg' + str(bo) + '.txt"'
+        os.system(command_curl)
+
 def main():
-    filename = ['books/3.txt','books/4.txt','books/5.txt']
+    filename = ['books/81.txt','books/84.txt','books/85.txt']
     for f in filename:
         book_stats(f)
     time = datetime.datetime.now()
     print(time)
     commandline = 'ls -l'
-    os.system(commandline)
+    #os.system(commandline)
+    list_files = os.listdir('./books')
+    print([list_files])
     book_number = 89
     #command_curl = 'curl --output books/89.txt "https://www.gutenberg.org/cache/epub/89/pg89.txt"'
-    for bo in range(80, 89):
-        command_curl = 'curl --output books/'  + str(bo) + '.txt "https://www.gutenberg.org/cache/epub/' + str(bo) + '/pg' + str(bo) + '.txt"'
-    
-        os.system(command_curl)
+    first_book = 75
+    last_book = 79
+    get_books_guten(first_book, last_book)
 main()
